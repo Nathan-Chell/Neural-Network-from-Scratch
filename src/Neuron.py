@@ -2,8 +2,6 @@
 #   A simple neuron, perceptron, that takes x inputs aand weights
 #
 
-import Activation_funcs as af
-
 
 # Compute the dot product between the inputs and the weights, and add the bias
 # Inputs: a list of input values
