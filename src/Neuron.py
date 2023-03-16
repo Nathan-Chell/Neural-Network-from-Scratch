@@ -31,17 +31,6 @@ def matrixDotProduct(inputs, weights, bias):
     return outputs
 
 
-# Compute the output of a single neuron, using an activation function
-# Inputs: a list of input values
-# Weights: a list of weight values, with the same length as inputs
-# Bias: a scalar value
-# ActivationFunction: a function that takes a scalar value as input and returns a scalar value
-# Returns: the output of the neuron, after applying the activation function
-
-def NeuronOutput(inputs, weights, bias, activationFunction):
-    output = dotProduct(inputs, weights, bias)
-    return activationFunction(output)
-
 def formatPrint(matrix):
     for i in matrix:
         print(i)
