@@ -16,22 +16,26 @@
 #   Leanr more: https://en.wikipedia.org/wiki/Hyperbolic_functions
 
 
-def sigmoid(x):
+class sigmoid:  
+    def __init__(self):
+        #   Constant e
+        #   This amount of precision is good for 15 decimal places
+        e = 2.718281828459045
     
-    #   Constant e
-    #   This amount of precision is good for 15 decimal places
-    e = 2.718281828459045
-   
-    return (1 / (1 + e**(-x)))
+    def forward(self, x):
+        self.output = 1 / (1 + e**(-x))
     
-def ReLU(x):
-    
-    return max(0, x)
+class ReLU:
+    def forward(self, x):
+        self.output = max(0, x)
 
-def tanh(x):
+class tanh:  
+    def __init__(self):
+        #   Constant e
+        #   This amount of precision is good for 15 decimal places
+        e = 2.718281828459045
+
+    def forward(self, x):
+        self.output = ((e**x - e**(-x)) / (e**x + e**(-x)))
     
-    #   Using e from sigmoid function
-    e = 2.718281828459045
-    
-    return ((e**x - e**(-x)) / (e**x + e**(-x)))
 
