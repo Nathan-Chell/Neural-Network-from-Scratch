@@ -16,26 +16,37 @@
 #   Leanr more: https://en.wikipedia.org/wiki/Hyperbolic_functions
 
 
-class sigmoid:  
+class Sigmoid:  
     def __init__(self):
         #   Constant e
         #   This amount of precision is good for 15 decimal places
-        e = 2.718281828459045
+        self.e = 2.718281828459045
     
     def forward(self, x):
-        self.output = 1 / (1 + e**(-x))
+        self.output = [[1 / (1 + self.e**(-k)) for k in j] for j in x]
     
 class ReLU:
     def forward(self, x):
-        self.output = max(0, x)
+        self.output = [[max(0, k) for k in j] for j in x]
 
 class tanh:  
     def __init__(self):
         #   Constant e
         #   This amount of precision is good for 15 decimal places
-        e = 2.718281828459045
+        self.e = 2.718281828459045
 
     def forward(self, x):
-        self.output = ((e**x - e**(-x)) / (e**x + e**(-x)))
+        self.output = [[((self.e**k - self.e**(-k)) / (self.e**k + self.e**(-k)))
+                        for k in j] for j in x]
     
+
+class Softmax:  
+    def __init__(self):
+        #   Constant e
+        #   This amount of precision is good for 15 decimal places
+        self.e = 2.718281828459045
+
+    def forward(self, x):
+        self.output = [[(self.e**k) / sum([self.e**j for j in x[i]])
+                        for k in x[i]] for i in range(len(x))]
 
