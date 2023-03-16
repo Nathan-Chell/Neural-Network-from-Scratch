@@ -67,6 +67,14 @@ def NormilizeData(data):
 def ArithmeticMean(arr):
     return sum(arr) / len(arr)
 
+def Accuracy(y_pred, y_target):
+    correct = 0
+    for i in range(len(y_pred)):
+        if y_pred[i] == y_target[i]:
+            correct += 1
+    
+    return correct / len(y_pred)
+
 class Layer_Dense:
     def __init__(self, n_inputs, n_neurons):
 
@@ -79,7 +87,7 @@ class Layer_Dense:
 
     def forward(self, inputs):
         self.output = n.matrixDotProduct(inputs, self.weights, self.biases)
-        
+
 class Loss:
     def Compute(self, output, target):
         
@@ -140,6 +148,7 @@ def main():
     loss_func = Loss_CategoricalCrossEntropy()
     loss = loss_func.Compute(Activation2.output, y_train)
     print(loss)
+    print(Accuracy(Activation2.output, y_train))
     
 
 if __name__ == "__main__":
