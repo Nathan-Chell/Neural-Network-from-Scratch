@@ -46,7 +46,6 @@ class Softmax:
         #   This amount of precision is good for 15 decimal places
         self.e = 2.718281828459045
 
-    def forward(self, x):
-        
+    def forward(self, x):  
         self.output = [[(self.e**k) / sum([self.e**j for j in x[i]])for k in x[i]] for i in range(len(x))]
 
