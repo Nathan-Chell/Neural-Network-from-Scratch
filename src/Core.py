@@ -6,7 +6,7 @@ import csv
 import math
 
 import Neuron as n
-import Activation_funcs as af
+from ActivationFunctions import ReLU, Softmax
 
 from random import random
 
@@ -132,8 +132,8 @@ def main():
     
     print("Done!")
 
-    Activation = af.ReLU()
-    Activation2 = af.Softmax()
+    Activation = ReLU.ReLU()
+    Activation2 = Softmax.Softmax()
     
     Layer1 = Layer_Dense(784, 5)
     Layer2 = Layer_Dense(5, 10)
